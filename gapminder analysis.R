@@ -18,3 +18,4 @@ ggplot(data=gapminder, aes(x=year, y=lifeExp, size =gdpPercap, by = country, col
 #to add line color line
 ggplot(data=gapminder, aes(x=year, y=lifeExp, size =gdpPercap, by = country, color = continent))+geom_line(color="black")+geom_point(aes(size=gdpPercap))
 #note from carpentary workshop modified but code remains the same
+#trying to midify and git pull
