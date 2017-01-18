@@ -16,6 +16,8 @@ ggplot(data=gapminder, aes(x=year, y=lifeExp, by = country, color = continent))+
 #to get the size to be as big as the gdpPercap
 ggplot(data=gapminder, aes(x=year, y=lifeExp, size =gdpPercap, by = country, color = continent))+geom_line()+geom_point()
 #to add line color line
-ggplot(data=gapminder, aes(x=year, y=lifeExp, size =gdpPercap, by = country, color = continent))+geom_line(color="black")+geom_point(aes(size=gdpPercap))
+ggplot(data=gapminder, aes(x=year, y=lifeExp, size =gdpPercap, by = country, color = continent))+geom_line(color="black")+geom_point(aes(size=gdpPercap))+
+  facet_grid(.~continent)
 #note from carpentary workshop modified but code remains the same
-#trying to midify and git pull
+#facet_grid feater add to catalog the plot defined by continent
+ggsave(filename = "year_vs_lifeexp_percont.png", width = 5, height = 4, units = "in")

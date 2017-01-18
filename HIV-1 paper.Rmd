@@ -1,0 +1,44 @@
+---
+title: "HIV-1 Genome integration"
+author: "Edmond A. Atindaana"
+date: "January 18, 2017"
+output: html_document
+---
+
+```{r}
+source("gapminder_utilities.R")
+
+```
+
+#HIV-1
+
+HIV-1 is an accronym for ***Human Immunodeficiency Syndromme***. It is a retrovirus, thus has the follow characteristics:
+
+* RNA genome
+
+* Reverse transcriptase enzyme
+
+* Requires import into the nucleus
+
+```{r load_data, echo=FALSE}
+library(ggplot2)
+gapminder<- read.csv("data/gapminder-FiveYearData.csv")
+```
+```{r echo=FALSE, , fig.path= "figures/"}
+scatter.smooth(gapminder)
+```
+```{r echo= FALSE}
+download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "gapminder-FiveYearData.csv")
+gapminder <- read.csv("gapminder-FiveYearData.csv")
+ggplot(data=gapminder, aes(x=year, y=lifeExp, size =gdpPercap, by = country, color = continent))+geom_point(aes(size=gdpPercap))+
+  facet_grid(.~continent)
+```
+
+
+```{r}
+calcGDP(gapminder, country = "Ghana")
+calcGDP(gapminder, year = 2000)
+```
+
+
+
